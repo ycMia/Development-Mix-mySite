@@ -5,3 +5,8 @@
 *.jpeg
 *.jpg
 *.bmp
+
+# personal shells
+# gitPull.sh
+# gitPush.sh
+
