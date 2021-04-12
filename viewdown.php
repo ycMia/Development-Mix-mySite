@@ -33,5 +33,6 @@
         }
     }
     closedir($dir_handle);                  //关闭目录资源指针
+	echo "<p>ends here</p>";
 ?>
 
