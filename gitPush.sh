@@ -1,7 +1,7 @@
 #!/bin/bash
 echo -n "Enter what to commit: "
 read commition
-echo -n "Enter which remote to push: "
+echo -n "Enter which remote & branch to push (e.g. github master): "
 read remote
 git add .
 echo ""
@@ -11,4 +11,4 @@ echo ""
 echo ""
 git push $remote
 
-echo "\ncompleted";
+echo "completed";
