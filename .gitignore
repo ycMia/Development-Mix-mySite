@@ -1,3 +1,6 @@
+#exact files
+/down/
+
 *.zip
 *.exe
 *.7z

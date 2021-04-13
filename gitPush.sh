@@ -10,5 +10,6 @@ git commit -m "$commition"
 echo ""
 echo ""
 git push $remote
-
+echo ""
+echo ""
 echo "completed";
