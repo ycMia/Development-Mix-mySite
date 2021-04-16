@@ -1,5 +1,6 @@
 <?php
 $temp = explode(".", $_FILES["file"]["name"]);
+$path ="../down/";
 
 $bytescount = $_FILES["file"]["size"];
 $gcount = floor($bytescount/1024/1024/1024);
@@ -39,28 +40,31 @@ UPLOAD_ERR_NO_FILE\n</br>
 		echo "文件类型: ".$_FILES["file"]["type"]."<br>";
 		echo "文件大小: ".($_FILES["file"]["size"]/1024)." kB<br>";
 		echo "文件临时存储的位置: ".$_FILES["file"]["tmp_name"]."<br>";
-			
-		if (file_exists("../down/".$_FILES["file"]["name"]))
+		$afilename = "";	
+		if (file_exists($path.$_FILES["file"]["name"]))
 		{
 			// 文件已经存在;
 			$count=1;
-			while(file_exists("../down/".$_FILES["file"]["name"].".".$count))
+			while(file_exists($path.$_FILES["file"]["name"].".".$count))
 			{
 				$count++;
     		}
-			move_uploaded_file($_FILES["file"]["tmp_name"], "../down/".$_FILES["file"]["name"].".".$count);
-			echo "已存在的文件, 改名的文件存储在: "."../down.php?f=".$_FILES["file"]["name"].".".$count;
+			move_uploaded_file($_FILES["file"]["tmp_name"], $path.$_FILES["file"]["name"].".".$count);
+			//echo "已存在的文件, 改名的文件存储在: "."../down.php?f=".$_FILES["file"]["name"].".".$count;
+			echo "已经存在的文件,后缀名已更改";
+			$afilename = $_FILES["file"]["name"].".".$count;
 		}
 		else
 		{
-			// 如果 upload 目录不存在该文件则将文件上传到 upload 目录下
-			move_uploaded_file($_FILES["file"]["tmp_name"],"../down/".$_FILES["file"]["name"]);
-			echo "文件存储在: "."../down.php?f=".$_FILES["file"]["name"];
+			move_uploaded_file($_FILES["file"]["tmp_name"],$path.$_FILES["file"]["name"]);
+			//echo "文件存储在: "."../down.php?f=".$_FILES["file"]["name"];
+			$afilename = $_FILES["file"]["name"];
 		}
+		echo "<a href=\"/down.php?f=" . $afilename . "\">点击跳转至文件地址</a>";
 	}
 }
 else
 {
-	echo "文件过大(2GB)";
+	echo "文件过大(16GB)";
 }
 ?>

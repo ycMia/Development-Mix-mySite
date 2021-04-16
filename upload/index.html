@@ -1,16 +1,74 @@
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>文件上传</title>
+<!--	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" charset="utf-8"></script>-->
+<!--	<script src="jquery.js" charset="utf-8"></script> -->
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<meta charset="utf-8">
+	<title>文件上传</title>
+	<style>
+		.circle1
+		{
+			width : 360px;
+			height : 360px;
+			margin-top : 5px;
+			border-radius : 50%;
+			background-color : #66ccff;
+			
+			line-height : 180px;
+		}
+		.textAlignCenter
+		{
+			text-align : center;
+			vertical-align:middle;
+			color : #ffffcc;
+			text-size : 50px;
+		}
+		.opacity0
+		{
+			opacity : 0;
+		}
+		.circle1fload{}
+		.filejquery{}
+	</style>
 </head>
 <body>
+	<br>
 
-<form action="upload_file.php" method="post" enctype="multipart/form-data">
-	<label for="file">文件名：</label>
-	<input type="file" name="file" id="file"><br>
-	<input type="submit" name="submit" value="提交">
-</form>
-
+	<form action="upload_file.php" method="post" enctype="multipart/form-data">
+		<div class="circle1" id="circlefload" onclick="funcf()">
+			<div class="textAlignCenter">选择文件</div>
+		</div>
+		<input type="file" name="file" id="filejquery" style="display:none">
+		
+		<br>
+		<div class="circle1" id="circlefload" onclick="funcs()" style="background-color: #ff4400">
+			<div class="textAlignCenter">提交</div>
+		</div>
+		<input type="submit" name="submit" value="提交" style="display:none" id="submitjquery"/>
+	</form>
+	<script>
+		function funcf()
+		{
+			$("input#filejquery").click();
+		}
+		function funcs()
+		{
+			var file = $("#filejquery");
+			if(file.data()==="")
+			{
+				var suffix = file.data("suffix");
+				if(suffix)
+				{
+					
+				}
+				$("input#submitjquery").click();
+			}
+			else
+			{alert("没有文件被输入\nNo File inputed");}
+		}
+	</script>
 </body>
 </html>
+
 
