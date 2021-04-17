@@ -55,17 +55,27 @@
 		function funcs()
 		{
 			var file = $("#filejquery");
-			if(file.data()==="")
+			try
 			{
-				var suffix = file.data("suffix");
-				if(suffix)
+				if(file.get(0).files[0].size > 0)
 				{
-					
+					var suffix = file.data("suffix");
+					if(suffix)
+					{
+							
+					}
+					$("input#submitjquery").click();
 				}
-				$("input#submitjquery").click();
+				else
+				{
+					//may not happend
+				}
 			}
-			else
-			{alert("没有文件被输入\nNo File inputed");}
+			catch(err)
+			{
+				//document.write("(给开发者)页面错误描述"+"\n"+err.description);
+				alert("没有文件被输入\nNo File inputed");
+			}
 		}
 	</script>
 </body>

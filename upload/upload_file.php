@@ -11,10 +11,14 @@ $kcount = floor($bytescount/1024);
 $mcount = $mcount - $gcount*1024;
 $kcount = $kcount - $gcount*1024*1024 - $mcount*1024;
 $bytescount = ($bytescount - $gcount*1024*1024*1024 - $mcount*1024*1024 - $kcount*1024);
+$extension = end($temp);     // 获取文件后缀名
+if (($_FILES["file"]["size"] <= 0))
+{
+	echo("非法的页面访问操作<a href=\"index.html\">回到前页面</a>");
+	die();
+}
 
 echo "$gcount G $mcount M $kcount K $bytescount B</br>\n";
-
-$extension = end($temp);     // 获取文件后缀名
 if (($_FILES["file"]["size"] <= 1024*1024*1024))
 {
 	if ($_FILES["file"]["error"] > 0)
