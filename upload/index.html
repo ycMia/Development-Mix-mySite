@@ -1,88 +1,97 @@
 <!DOCTYPE html>
-<html>
-<head>
-<!--	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" charset="utf-8"></script>-->
-<!--	<script src="jquery.js" charset="utf-8"></script> -->
-<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-	<meta charset="utf-8">
-	<title>文件上传</title>
-	<style>
-		html
-		{
-		cursor: default;
-		}
-		.circle1
-		{
-			width : 360px;
-			height : 360px;
-			margin-top : 5px;
-			border-radius : 50%;
-			background-color : #66ccff;
-			
-			line-height : 180px;
-		}
-		.textAlignCenter
-		{
-			text-align : center;
-			vertical-align:middle;
-			color : #ffffcc;
-			text-size : 50px;
-		}
-		.opacity0
-		{
-			opacity : 0;
-		}
-		.circle1fload{}
-		.filejquery{}
-	</style>
-</head>
-<body>
-	<br>
 
+<html lang="zh">
+	
+<head>
+	<title>文件上传</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width"/>
+	<style>
+        body {
+			user-select: none;
+            margin: 0;
+            width: inherit;
+            height: inherit;
+            cursor: default;
+        }
+
+		form {
+			margin: 0;
+			width: inherit;
+			height: inherit;
+		}
+
+		input {
+			display: none;
+		}
+
+		.circle {
+			float: left;
+			text-align: center;
+			color: #05C;
+			width: 30%;
+			margin-left: 10%;
+			margin-right: 10%;
+			margin-top: 5%;
+			border-radius: 50%;
+			background-color: #00F2;
+			transition-timing-function: ease;
+			transition-duration: 0.4s;
+		}
+
+        @media screen and (max-width: 500px) {
+            .circle {
+                float: none;
+                width: 60%;
+                margin-left: 20%;
+                margin-right: 20%;
+		margin-top: 10%;
+		margin-bottom: 10%;
+            }
+        }
+	</style>
+	<script src="./jquery.js"></script>
+</head>
+
+<body>
 	<form action="upload_file.php" method="post" enctype="multipart/form-data">
-		<div class="circle1" id="circlefload" onclick="funcf()">
-			<div class="textAlignCenter">选择文件</div>
-		</div>
-		<input type="file" name="file" id="filejquery" style="display:none">
-		
-		<br>
-		<div class="circle1" id="circlefload" onclick="funcs()" style="background-color: #ff4400">
-			<div class="textAlignCenter">提交</div>
-		</div>
-		<input type="submit" name="submit" value="提交" style="display:none" id="submitjquery"/>
+		<div class="circle" id="load">选择文件</div>
+		<input type="file" name="file" id="file">
+		<div class="circle" id="submit">提交</div>
+		<input type="submit" name="submit" id="upload" style="display:none"/>
 	</form>
 	<script>
-		function funcf()
-		{
-			$("input#filejquery").click();
-		}
-		function funcs()
-		{
-			var file = $("#filejquery");
-			try
-			{
-				if(file.get(0).files[0].size > 0)
+		window.onload = () => {
+			setInterval(() => {
+				let height;
+				if (window.innerWidth <= 500)
+					height = (window.innerWidth * 3 / 5).toString() + 'px';
+                		else
+		                	height = (window.innerWidth * 3 / 10).toString() + 'px';
+                		$('#load')
+                    			.css('height', height)
+                    			.css('line-height', height);
+                		$('#submit')
+                    			.css('height', height)
+                    			.css('line-height', height);
+				}
+			, 50);
+			
+			$('#load').click(() => {
+				$('#file').click();
+			});
+			
+			$('#submit').click(() => {
+				if($('#file').get(0).files.length > 0)
 				{
-					var suffix = file.data("suffix");
-					if(suffix)
-					{
-							
-					}
-					$("input#submitjquery").click();
+					$('#upload').click();
 				}
 				else
-				{
-					//may not happend
-				}
-			}
-			catch(err)
-			{
-				//document.write("(给开发者)页面错误描述"+"\n"+err.description);
-				alert("没有文件被输入\nNo File inputed");
-			}
-		}
+					alert('请输入至少一个文件');
+			});
+		};
 	</script>
 </body>
-</html>
 
+</html>
 
