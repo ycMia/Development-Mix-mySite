@@ -9,6 +9,10 @@
 *.jpg
 *.bmp
 
+*.mp4
+*.m4a
+*.webp
+
 # personal shells
 # gitPull.sh
 # gitPush.sh

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+
+<head>
+    <title>课程安排</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html
+        {
+            user-select: none;
+            cursor: default;
+            overflow: hidden;
+            height: 100%;
+            margin: 0;
+        }
+        body
+        {
+            height: 100%;
+            margin: 0;
+        }
+        #login
+        {
+            position: absolute;
+            top: 10%;
+            height: 80%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #777;
+            text-align: center;
+            flex-direction: column;
+        }
+        #login > *
+        {
+            width: 100%;
+            margin-block-start: 4px;
+            margin-block-end: 4px;
+        }
+        #infoinput > input
+        {
+            outline-width: 3px;
+            outline-style: solid;
+            outline-color: #222;
+        }
+        #infosubmit
+        {
+            margin-block-start: 3em;
+            float: right;
+            width: 20%;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #333;
+            color: #DDD;
+            transition-duration: .4s;
+            transition-timing-function: cubic-bezier(.215, .610, .355, 1);
+        }
+        #infosubmit:hover
+        {
+            width: 100%;
+            border-radius: 0;
+        }
+        #grades, #classes
+        {
+            width: 30px;
+        }
+        #classcheck
+        {
+            transition-duration: .3s;
+            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+        #background > img
+        {
+            opacity: 0;
+            width: 100%;
+            animation-name: bganime;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+        }
+        @keyframes bganime
+        {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <script>
+        'use strict';
+        const cookies =
+        {
+            erase(key) { document.cookie = key + '=0;expires=' + new Date(0).toGMTString(); },
+            set(key, val, exp) { document.cookie = key + '=' + val + ';expires=' + exp.toGMTString(); },
+            get(key)
+            {
+                let name = key + "=";
+                let ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) 
+                {
+                    let c = ca[i].trim();
+                    if (!c.indexOf(name))
+                        return c.substring(name.length, c.length);
+                }
+                return null;
+            },
+            forEach(func)
+            {
+                let ca = document.cookie.split(';');
+                for (let i = 0; i < ca.length; i++)
+                {
+                    let c = ca[i].trim();
+                    func(c.split('=')[0], c.split('=')[1]);
+                }
+            }
+        };
+        let submit = null;
+        let submiting = false;
+        let i = 0;
+        function updpge()
+        {
+            if (cookies.get('usrclass') && cookies.get('usrgrade'))
+            {
+                document.getElementById('main').removeAttribute('hidden');
+                document.getElementById('login').setAttribute('hidden', '');
+            }
+            else
+            {
+                document.getElementById('login').removeAttribute('hidden');
+                document.getElementById('main').setAttribute('hidden', '');
+            }
+        }
+        setInterval(() =>
+        {
+            let g = document.getElementById('grades').value = Math.ceil(document.getElementById('grades').value);
+            let c = document.getElementById('classes').value = Math.ceil(document.getElementById('classes').value);
+            if (g <= 4 && g >= 1 && c <= 12 && c >= 1)
+                document.getElementById('classcheck').style.color = '#2D2';
+            else
+                document.getElementById('classcheck').style.color = '#D22';
+        }, 100);
+        window.onload = () =>
+        {
+            updpge();
+            submit = document.getElementById('infosubmit');
+            submit.addEventListener('click', (ev) =>
+            {
+            let g = document.getElementById('grades').value = Math.ceil(document.getElementById('grades').value);
+            let c = document.getElementById('classes').value = Math.ceil(document.getElementById('classes').value);
+                if (!submiting && g <= 4 && g >= 1 && c <= 12 && c >= 1)
+                {
+                    cookies.set('usrgrade', g.toString(), new Date(Date.now() + 365 * 24 * 3600 * 1000));
+                    cookies.set('usrclass', c.toString(), new Date(Date.now() + 365 * 24 * 3600 * 1000));
+                    submiting = true;
+                    submit.style.transitionDuration = '1s';
+                    submit.style.width = '100%';
+                    submit.style.borderRadius = '0';
+                    i = -15;
+                    let inter = setInterval(() =>
+                    {
+                        if (i <= 100)
+                        {
+                            submit.style.backgroundImage = 'linear-gradient(to right, #FFF, #FFF ' + i.toString() + '%, #333 ' + (i + 15).toString() + '%, #333)';
+                            i++;
+                        }
+                    }, 1000 / 115);
+                    setTimeout(() =>
+                    {
+                        clearInterval(inter);
+                        submit.removeAttribute('style');
+                        updpge();
+                        submiting = false;
+                    }, 1000);
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div id="main" hidden>
+        <div id="background">
+            <img alt="Background" src="./images/img__001.bmp"/>
+        </div>
+    </div>
+    <div id="login" hidden>
+        <h2 id="classcheck">请选择你的班级：</h2>
+        <p id="infoinput">
+            &emsp;&emsp;<input id="grades" type="number" value="1"/>&ensp;年&ensp;<input id="classes" type="number" value="1"/>&ensp;班
+        </p>
+        <p id="infosubmit">确认</p>
+    </div>
+</body>
+
+</html>
