@@ -13,6 +13,8 @@
 *.m4a
 *.webp
 
+*.swp
+
 # personal shells
 # gitPull.sh
 # gitPush.sh

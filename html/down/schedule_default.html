@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)file:///C:/Users/seewo/Desktop/schedule.html -->
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>高二(1)班 课程表</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <style>
+        html
+        {
+            cursor: default;
+            user-select: none;
+            height: 100%;
+        }
+        body
+        {
+            transition-timing-function: ease-in-out;
+            transition-duration: 1s;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: inherit;
+            height: inherit;
+            margin: 0;
+            color: #AAA;
+            opacity: 0;
+            animation-name: fadingin;
+            animation-duration: 2s;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+        }
+        table
+        {
+            height: 70%;
+            width: 70%;
+            text-align: center;
+        }
+        tbody
+        {
+            width: inherit;
+        }
+        th
+        {
+            font-size: 3em;
+        }
+        td
+        {
+            font-size: 2.2em;
+        }
+        th, td
+        {
+            width: 20%;
+        }
+        @media screen and (max-width: 1000px)
+        {
+            th
+            {
+                font-size: 1em;
+            }
+            td
+            {
+                font-size: .7em;
+            }
+        }
+        @keyframes fadingin
+        {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <table>
+        <tbody>
+            <tr>
+                <th id="day1" style="color: rgb(170, 170, 170); background-color: rgb(255, 255, 255);">星期一</th>
+                <th id="day2" style="color: rgb(170, 170, 170); background-color: rgb(255, 255, 255);">星期二</th>
+                <th id="day3" style="color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">星期三</th>
+                <th id="day4" style="color: rgb(170, 170, 170); background-color: rgb(255, 255, 255);">星期四</th>
+                <th id="day5" style="color: rgb(170, 170, 170); background-color: rgb(255, 255, 255);">星期五</th>
+            </tr>
+            <tr>
+                <td class="day1" style="color: #AAA; background-color: #FFF;">生物等级/拓展</td>
+                <td class="day2" style="color: #AAA; background-color: #FFF;">物理等级/自修</td>
+                <td class="day3" style="color: #333; background-color: #555;">数学</td>
+                <td class="day4" style="color: #AAA; background-color: #FFF;">数学</td>
+                <td class="day5" style="color: #AAA; background-color: #FFF;">数学</td>
+            </tr>
+            <tr>
+                <td class="day1" style="color: #AAA; background-color: #FFF;">历史合格</td>
+                <td class="day2" style="color: #AAA; background-color: #FFF;">生物等级/拓展</td>
+                <td class="day3" style="color: #333; background-color: #555;">数学</td>
+                <td class="day4" style="color: #AAA; background-color: #FFF;">地理等级/拓展</td>
+                <td class="day5" style="color: #AAA; background-color: #FFF;">英语</td>
+            </tr>
+            <tr>
+                <td class="day1" style="color: #AAA; background-color: #FFF;">体育</td>
+                <td class="day2" style="color: #AAA; background-color: #FFF;">英语</td>
+                <td class="day3" style="color: #333; background-color: #555;">物理等级/自修</td>
+                <td class="day4" style="color: #AAA; background-color: #FFF;">生物等级/拓展</td>
+                <td class="day5" style="color: #AAA; background-color: #FFF;">语文</td>
+            </tr>
+            <tr>
+                <td class="day1" style="color: #AAA; background-color: #FFF;">语文</td>
+                <td class="day2" style="color: #AAA; background-color: #FFF;">化学等级</td>
+                <td class="day3" style="color: #333; background-color: #555;">英语</td>
+                <td class="day4" style="color: #AAA; background-color: #FFF;">艺术</td>
+                <td class="day5" style="color: #AAA; background-color: #FFF;">生物等级/拓展</td>
+            </tr>
+            <tr>
+                <td class="day1" style="color: #AAA; background-color: #FFF;">数学</td>
+                <td class="day2" style="color: #AAA; background-color: #FFF;">地理等级/拓展</td>
+                <td class="day3" style="color: #333; background-color: #555;">英语</td>
+                <td class="day4" style="color: #AAA; background-color: #FFF;">历史合格</td>
+                <td class="day5" style="color: #AAA; background-color: #FFF;">地理等级/拓展</td>
+            </tr>
+            <tr>
+                <td class="day1" style="color: #AAA; background-color: #FFF;">物理等级/合格</td>
+                <td class="day2" style="color: #AAA; background-color: #FFF;">语文</td>
+                <td class="day3" style="color: #333; background-color: #555;">体育</td>
+                <td class="day4" style="color: #AAA; background-color: #FFF;">化学等级</td>
+                <td class="day5" style="color: #AAA; background-color: #FFF;">政治合格</td>
+            </tr>
+            <tr>
+                <td class="day1" style="color: #AAA; background-color: #FFF;">化学等级</td>
+                <td class="day2" style="color: #AAA; background-color: #FFF;">语文</td>
+                <td class="day3" style="color: #333; background-color: #555;">政治合格</td>
+                <td class="day4" style="color: #AAA; background-color: #FFF;">物理等级/合格</td>
+                <td class="day5" style="color: #AAA; background-color: #FFF;">化学等级</td>
+            </tr>
+            <tr>
+                <td class="day1" style="color: #AAA; background-color: #FFF;">英语</td>
+                <td class="day2" style="color: #AAA; background-color: #FFF;">体育</td>
+                <td class="day3" style="color: #000; background-color: #EEE; font-weight: bold;">地理等级/拓展</td>
+                <td class="day4" style="color: #AAA; background-color: #FFF;">英语</td>
+                <td class="day5" style="color: #AAA; background-color: #FFF;">班会/体锻</td>
+            </tr>
+            <tr>
+                <td class="day1" style="color: #AAA; background-color: #FFF;">英语</td>
+                <td class="day2" style="color: #AAA; background-color: #FFF;">数学</td>
+                <td class="day3" style="color: #555; background-color: #AAA;">语文</td>
+                <td class="day4" style="color: #AAA; background-color: #FFF;">体育</td>
+                <td class="day5" style="color: #AAA; background-color: #FFF;"></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        setInterval(() =>
+        {
+            let proc = 0;
+            let date = new Date();
+            if (date.getDay() < 6 && date.getDay() > 0)
+            {
+                for (let i = 1; i < 6; i++)
+                {
+                    if (i != date.getDay())
+                    {
+                        document.getElementById('day' + i.toString()).style.color = '#AAA';
+                        document.getElementById('day' + i.toString()).style.backgroundColor = '#FFF';
+                        for (let j = 0; j < 9; j++)
+                            document.getElementsByClassName('day' + i.toString()).item(j).setAttribute('style', 'color: #AAA; background-color: #FFF;');
+                    }
+                }
+                document.getElementById('day' + date.getDay().toString()).style.color = '#000';
+                document.getElementById('day' + date.getDay().toString()).style.backgroundColor = '#CCC';
+                if (date.getHours() < 8 || date.getMinutes() <= 40 && date.getHours() == 8)
+                    proc = 0;
+                else if (date.getHours() < 9 || date.getMinutes() <= 40 && date.getHours() == 9)
+                    proc = 1;
+                else if (date.getHours() < 10 || date.getMinutes() <= 30 && date.getHours() == 10)
+                    proc = 2;
+                else if (date.getHours() < 11 || date.getMinutes() <= 25 && date.getHours() == 11)
+                    proc = 3;
+                else if (date.getHours() < 12 || date.getMinutes() <= 15 && date.getHours() == 12)
+                    proc = 4;
+                else if (date.getHours() < 13 || date.getMinutes() <= 55 && date.getHours() == 13)
+                    proc = 5;
+                else if (date.getHours() < 14 || date.getMinutes() <= 35 && date.getHours() == 14)
+                    proc = 6;
+                else if ((date.getHours() < 15 || date.getMinutes() <= 55 && date.getHours() == 15) && date.getDay() != 5 || (date.getHours() < 15 || date.getMinutes() <= 40 && date.getHours() == 15) && date.getDay() == 5)
+                    proc = 7;
+                else if ((date.getHours() < 16 || date.getMinutes() <= 45 && date.getHours() == 16) && date.getDay() != 5)
+                    proc = 8;
+                else
+                    proc = 9;
+                for (let i = 0; i < proc; i++)
+                {
+                    document.getElementsByClassName('day' + date.getDay().toString()).item(i).setAttribute('style', 'color: #333; background-color: #555;');
+                }
+                try
+                {
+                    document.getElementsByClassName('day' + date.getDay().toString()).item(proc).setAttribute('style', 'color: #000; background-color: #EEE; font-weight: bold;');
+                } catch (ex) {}
+                for (let i = 8; i > proc; i--)
+                {
+                    document.getElementsByClassName('day' + date.getDay().toString()).item(i).setAttribute('style', 'color: #555; background-color: #AAA;');
+                }
+            }
+        }, 1000);
+    </script>
+
+
+</body></html>
