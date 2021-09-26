@@ -1,5 +1,6 @@
 #exact files
-/down/
+html/down/
+html/down_text/file/
 
 *.zip
 *.exe
