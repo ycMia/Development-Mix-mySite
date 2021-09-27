@@ -9,6 +9,11 @@ html/down_text/file/
 *.jpeg
 *.jpg
 *.bmp
+*.pdff
+*.ppt
+*.doc
+*.docx
+*.pptx
 
 *.mp4
 *.m4a
